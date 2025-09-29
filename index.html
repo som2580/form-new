@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ລະບົບລົງທະບຽນເລີນ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg min-h-screen py-8">
+<div class="container mx-auto px-4 max-w-2xl">
+    <!-- Header -->
+    <div class="text-center mb-8 fade-in">
+        <div class="bg-white rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+        </div>
+        <h1 class="text-4xl font-bold text-white mb-2">ລະບົບລົງທະບຽນຮຽນ</h1>
+        <p class="text-blue-100 text-lg">ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບເພື່ອລົງທະບຽນຮຽນ</p>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container rounded-2xl shadow-2xl p-8 fade-in">
+        <form id="registrationForm" class="space-y-6">
+            <!-- ชื่อ-นามสกุล -->
+            <div>
+                <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ຊື່-ນາມສະກຸນ <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="fullName" name="fullName" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300"
+                       placeholder="ກະລຸນາປ້ອນຊື່-ນາມສະກຸນ">
+            </div>
+
+            <!-- วันเดือนปีเกิด -->
+            <div>
+                <label for="birthDate" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ວັນເດືອນປີເກີດ <span class="text-red-500">*</span>
+                </label>
+                <input type="date" id="birthDate" name="birthDate" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300">
+            </div>
+
+            <!-- ที่อยู่ -->
+            <div>
+                <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ທີ່ຢູ່ <span class="text-red-500">*</span>
+                </label>
+                <textarea id="address" name="address" required rows="3"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300 resize-none"
+                          placeholder="ກະລຸນາປ້ອນທີ່ຢູ່ປັດຈຸບັນ"></textarea>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ອີເມວ <span class="text-red-500">*</span>
+                </label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300"
+                       placeholder="example@email.com">
+            </div>
+
+            <!-- เบอร์โทรศัพท์ -->
+            <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ເບີໂທລະສັບ <span class="text-red-500">*</span>
+                </label>
+                <input type="tel" id="phone" name="phone" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300"
+                       placeholder="08X-XXX-XXXX">
+            </div>
+
+            <!-- ประเภทโต๊ะเรียน -->
+            <div>
+                <label for="tableType" class="block text-sm font-semibold text-gray-700 mb-2">
+                    ປະເພດໂຕະເລີນ <span class="text-red-500">*</span>
+                </label>
+                <select id="tableType" name="tableType" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus outline-none transition-all duration-300">
+                    <option value="">ເລືອກປະເພດໂຕະຮຽນ</option>
+                    <option value="A">ປະເພດໂຕະ A</option>
+                    <option value="B">ປະເພດໂຕະ B</option>
+                    <option value="C">ປະເພດໂຕະ C</option>
+                </select>
+            </div>
+
+            <!-- ประเภทนักเรียน -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-3">
+                    ປະເພດນັກຮຽນ <span class="text-red-500">*</span>
+                </label>
+                <div class="flex space-x-6">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="studentType" value="ພະສົງສະເຫຼີມ" required
+                               class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                        <span class="ml-2 text-gray-700">ພຣະສົງ</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="studentType" value="ໂຢມ" required
+                               class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                        <span class="ml-2 text-gray-700">ໂຍມ</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+                <button type="submit" id="submitBtn"
+                        class="w-full btn-primary text-white font-semibold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-2">
+                    <span id="submitText">ລົງທະບຽນຮຽນ</span>
+                    <div id="loadingSpinner" class="loading-spinner hidden"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ข้อมูลล่าสุด -->
+    <div id="dataList" class="mt-8 max-w-2xl mx-auto"></div>
+</div>
+
+<script src="script.js">
+</script>
+</body>
+</html>
